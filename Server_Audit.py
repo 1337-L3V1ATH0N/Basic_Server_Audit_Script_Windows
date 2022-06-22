@@ -49,7 +49,7 @@ except subprocess.CalledProcessError as err:
     print(colored("[+] PowerShell is blocked.","green"))
 
 # Checking for Drives & NTFS filesystem.
-print(colored("\n== Checking for Drives & FileSystem==\n","yellow"))
+print(colored("\n== Checking for Drives & FileSystem ==\n","yellow"))
 os.system('wmic logicaldisk get caption, filesystem')
 
 # Checking for Users with Admin rights.
