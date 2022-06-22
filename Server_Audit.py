@@ -6,7 +6,7 @@ from termcolor import colored
 
 os.system('cls')
 
-print(colored("""[\tScript Author: Akash Pandey\n\tDepartment: VAPT\t]""","green"))
+print(colored("""[\tScript Author: Akash Pandey\n\tGithub: https://github.com/1337-L3V1ATH0N/\t]""","green"))
 
 # Finding hostname.
 print(colored("\n== HOSTNAME ==\n","yellow"))
