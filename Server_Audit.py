@@ -3,7 +3,6 @@ import os
 from termcolor import colored
 
 # Clearing Screen.
-
 os.system('cls')
 
 print(colored("""[\tScript Author: Akash Pandey\n\tGithub: https://github.com/1337-L3V1ATH0N/\t]""","white"))
@@ -13,14 +12,12 @@ print(colored("\n== HOSTNAME ==\n","yellow"))
 os.system('cmd.exe /c hostname')
 
 # Checking Server Type.
-
 print(colored("\n== Server Version ==\n","yellow"))
 OS=subprocess.check_output(['cmd.exe','/c','systeminfo'],shell=True,text=True).split('\n')
 for osname in OS[2:4]:
     print(osname)
 
 # Checking for IP Address.
-
 print(colored("\n== IPv4 Addresses ==\n","yellow"))
 ipconfig=subprocess.check_output(['cmd.exe','/c','ipconfig','|','findstr','/i','IPv4'],shell=True,text=True).split('\n')
 for ip in ipconfig:
@@ -35,7 +32,6 @@ for domain in OS:
         pass
     
 # Checking if Server is Physical or Virtual.
-
 print(colored("\n== Checking if Server is Physical or Virtual ==\n","yellow"))
 for srvtype in OS:
     if "System Manufacturer:" in srvtype:
