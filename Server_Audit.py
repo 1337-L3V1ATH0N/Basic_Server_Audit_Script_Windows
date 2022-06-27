@@ -43,7 +43,7 @@ for srvtype in OS:
         pass
 # Checking if PowerShell is blocked.
 print(colored("\n== Checking for PowerShell ==\n","yellow"))
-print(colored("[Note] While checking for powershell if cmd gets stucked then PowerShell isn't blocked.","white"))
+#print(colored("[Note] While checking for powershell if cmd gets stucked then PowerShell isn't blocked.","white"))
 try:
     subprocess.check_output('powershell.exe -c exit',shell=True)
     print(colored("[!] PowerShell is not blocked.","red"))
@@ -97,3 +97,13 @@ for osname in OS[2:4]:
     else:
         print(colored("[+] Server Seems to be Up-To-Date.","green"))
         break
+
+# Checking for Windows License Key.
+
+print(colored("\n== Checking for License Key ==\n","yellow"))
+key=subprocess.check_output(["wmic","path","softwarelicensingservice","get","oa3xoriginalproductkey"],shell=True,text=True).split("\n")
+for lic in key[2:3]:
+    if lic is not None:
+        print(colored("[+] " + lic,"green"))
+    else:
+        print(colored("[!] No License Key found","red"))
