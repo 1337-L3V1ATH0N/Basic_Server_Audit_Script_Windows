@@ -101,9 +101,7 @@ for osname in OS[2:4]:
 # Checking for Windows License Key.
 
 print(colored("\n== Checking for License Key ==\n","yellow"))
-key=subprocess.check_output(["wmic","path","softwarelicensingservice","get","oa3xoriginalproductkey"],shell=True,text=True).split("\n")
-for lic in key[2:3]:
-    if lic is not None:
-        print(colored("[+] " + lic,"green"))
-    else:
-        print(colored("[!] No License Key found","red"))
+key=subprocess.check_output(['wmic','path','softwarelicensingservice','get','oa3xoriginalproductkey'],shell=True,text=True).split(" ")
+print(colored("[Note] If nothing returns then Windows is not Activated.","white"))
+for lic in key[9:10]:
+    print(lic)
