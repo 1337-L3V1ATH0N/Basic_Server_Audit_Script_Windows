@@ -157,17 +157,18 @@ with open('Audit.txt','a') as file:
     file.close()
 users=subprocess.check_output(["net","users"],shell=True,text=True).split('\n')
 for user in users:
-    if "arcsight" not in user:
-        print(colored("[!] System is not configured for SIEM LogShipping.","red"))
+    if "arcsight" in user:
+        print(colored("[!] System is configured for SIEM LogShipping.","red"))
         with open('Audit.txt','a') as file:
-            file.write("\n[!] System is not configured for SIEM LogShipping.\n\n")
+            file.write("\n[!] System is configured for SIEM LogShipping.\n\n")
             file.close()
         break
     else:
-        print(colored("[+] System is configured for SIEM LogShipping.","green"))
+        print(colored("[+] System is not configured for SIEM LogShipping.","green"))
         with open('Audit.txt','a') as file:
-            file.write("[+] System is configured for SIEM LogShipping.\n")
+            file.write("[+] System is not configured for SIEM LogShipping.\n")
             file.close()
+        break
             
 # Checking for System End-Of-Life.
 print(colored("\n== Checking for System End-Of-Life ==\n","yellow"))
