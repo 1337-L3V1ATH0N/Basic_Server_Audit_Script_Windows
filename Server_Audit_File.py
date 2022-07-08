@@ -155,7 +155,7 @@ print(colored("\n== Checking for SIEM LogShipping through user ARCSIGHT ==\n","y
 with open('Audit.txt','a') as file:
     file.write("\n== Checking for SIEM LogShipping through user ARCSIGHT ==\n\n")
     file.close()
-users=subprocess.check_output(["net","users"],shell=True,text=True).split('\n')
+users=subprocess.check_output(["net","localgroup","administrators"],shell=True,text=True).split('\n')
 for user in users:
     if "arcsight" in user:
         print(colored("[+] System is configured for SIEM LogShipping.","red"))
